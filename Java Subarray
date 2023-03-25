@@ -30,7 +30,7 @@ public class Solution {
             }
         }
         
-        // Stampo quante somme danno un importo negativo
+        // Stampo quante somme danno un risultato negativo
         System.out.println(count);
         
     }
