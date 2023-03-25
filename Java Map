@@ -1,0 +1,30 @@
+//Complete this code or write your own from scratch
+import java.util.*;
+import java.io.*;
+
+class Solution{
+	public static void main(String []argh)
+	{
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt(); // input 3
+		in.nextLine();
+		HashMap<String, Integer> phoneNumber = new HashMap<>();
+        
+        for(int i=0;i<n;i++)
+		{
+			String name=in.nextLine(); // input uncle sam
+			int phone=in.nextInt(); // input 99912222
+			in.nextLine();
+            phoneNumber.put(name, phone);
+		}
+		while(in.hasNext())
+		{
+			String s=in.nextLine(); // input uncle sam
+            if(phoneNumber.containsKey(s)) {
+                System.out.println(s + "=" + phoneNumber.get(s));  
+            } else {
+                System.out.println("Not found");
+            }  
+		}
+	}
+}
