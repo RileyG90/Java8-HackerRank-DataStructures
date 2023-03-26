@@ -10,21 +10,21 @@ class Solution{
 		in.nextLine();
 		HashMap<String, Integer> phoneNumber = new HashMap<>();
         
-        for(int i=0;i<n;i++)
+		for(int i=0;i<n;i++)
 		{
 			String name=in.nextLine(); // input uncle sam
 			int phone=in.nextInt(); // input 99912222
 			in.nextLine();
-            phoneNumber.put(name, phone);
+			phoneNumber.put(name, phone);
 		}
-		while(in.hasNext())
-		{
+
+		while(in.hasNext()) {
 			String s=in.nextLine(); // input uncle sam
-            if(phoneNumber.containsKey(s)) {
-                System.out.println(s + "=" + phoneNumber.get(s));  
-            } else {
-                System.out.println("Not found");
-            }  
+			if(phoneNumber.containsKey(s)) {
+			System.out.println(s + "=" + phoneNumber.get(s));  
+			} else {
+				System.out.println("Not found");
+			}	  
 		}
 	}
 }
