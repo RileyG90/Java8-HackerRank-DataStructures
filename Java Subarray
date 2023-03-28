@@ -11,27 +11,25 @@ public class Solution {
         
         int[] A = new int[num];
         
+        int count = 0;
         // popoloro array
         for(int i = 0; i < A.length; i++) {
-            int item = sc.nextInt();
-            A[i] = item;
-        }
-        
-        int count = 0;
-        
-        //sum subarray
-        for(int i = 0; i < A.length; i++) { // ciclo 5 volte
             int sum = 0; // azzero sum ad ogni ciclo
             for(int j = i; j < A.length; j++) {
-                    sum = sum + A[j];
+                if (i == 0){   
+                    int item = sc.nextInt();
+                    A[j] = item;
+                }
+                    sum += A[j];
                     if (sum < 0) {
                         count++;
                     }
             }
         }
         
+        
+      
         // Stampo quante somme danno un risultato negativo
         System.out.println(count);
-        
     }
 }
