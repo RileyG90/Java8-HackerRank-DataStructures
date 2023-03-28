@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static <E> void printArray (E[] array) {
+        for(E elem : array) {
+            System.out.println(elem);
+        }
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Solution printArray = new Solution();
+        
+        Integer[] intArray = new Integer[] {1, 2, 3};
+        String[] stringArray = new String[] {"Hello \nWorld"};
+        
+        printArray.printArray(intArray);
+        printArray.printArray(stringArray);
+        
+        
+        
+    }
+}
