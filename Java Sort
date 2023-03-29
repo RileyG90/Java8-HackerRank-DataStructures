@@ -1,0 +1,115 @@
+import java.util.*;
+
+class Student implements Comparator<Student>{
+	private int id;
+	private String fname;
+	private double cgpa;
+	public Student(int id, String fname, double cgpa) {
+		super();
+		this.id = id;
+		this.fname = fname;
+		this.cgpa = cgpa;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getFname() {
+		return fname;
+	}
+	public double getCgpa() {
+		return cgpa;
+	}
+    
+    public boolean equals(Object o){
+        if(o != null && o instanceof Student){
+            Student input = (Student) o;
+            return this.getFname().equals(input.getFname()) && this.getCgpa() == input.getCgpa() && this.getId() == input.getId();
+        }
+        return false;
+    
+    }
+    
+    @Override
+    public int compare(Student s1, Student s2) {
+        if(s1.getCgpa() == s2.getCgpa()) {
+            return s1.getFname().compareTo(s2.getFname());
+        } else if (s2.getCgpa()> s1.getCgpa()) {
+            return 1;
+        }
+        return -1;
+    }
+
+    
+    /*public int compareTo(Object o){  
+                if(this.equals(o))
+                    return 0;
+                Student input = (Student) o;
+                if(this.getCgpa() == input.getCgpa()){
+                    if(this.getFname().compareTo(input.getFname())){
+                        if(this.getId() > input.getId())
+                            return 1;
+                        return -1;
+                    } else {
+                        return this.getFname().compareTo(input.getFname());
+                    } 
+                }
+                return this.getCgpa() > input.getCgpa() ? 1 : -1;
+    }*/
+    
+    @Override
+    public String toString() {
+        
+        return this.fname;
+    }
+} 
+
+/* class Sort implements Comparator<Student> {
+    
+    @Override
+    public int compare(Student student, Student student1) {
+        if(student.getCgpa() == student1.getCgpa()) {
+            return student.getFname().compareTo(student.getFname());
+        }
+        return Integer.compare((int) student1.getCgpa(), (int) student.getCgpa());
+    }
+}*/
+
+//Complete the code
+public class Solution
+{
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		int testCases = Integer.parseInt(in.nextLine());
+		
+		List<Student> studentList = new ArrayList<Student>();
+		while(testCases>0){
+			int id = in.nextInt();
+			String fname = in.next();
+			double cgpa = in.nextDouble();
+			
+			Student st = new Student(id, fname, cgpa);
+			studentList.add(st);
+            
+			
+			testCases--;
+		}
+        
+        studentList.sort(new Comparator<Student>() {
+            public int compare(Student s1, Student s2) {
+                if(s1.getCgpa() == s2.getCgpa()) {
+                    return s1.getFname().compareTo(s2.getFname());
+                } else if (s2.getCgpa()> s1.getCgpa()) {
+                    return 1;
+                }
+                return -1;
+            }
+        });
+      
+      	for(Student st: studentList){
+			System.out.println(st.getFname());
+		}
+	}
+}
+
+
+
