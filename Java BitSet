@@ -1,0 +1,68 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt(); // the lenght of both BitSets B1 and B2
+        int M = sc.nextInt(); // the number of operation to perform
+        
+        
+        BitSet b1 = new BitSet(N); //B1
+        BitSet b2 = new BitSet(N); //B2
+        
+        for(int i = 0; i < M; i++) {
+            
+            String s = sc.next();
+            int left = sc.nextInt(); //  left operand
+            int right = sc.nextInt();  // right operand
+            
+            switch(s) {
+                case "AND": 
+                    if(left == 1){
+                        b1.and(b2); 
+                    } else
+                        b2.and(b1);
+                break;
+                
+                case "SET":
+                    if(left == 1) {
+                        b1.set(right, true);
+                    } else 
+                        b2.set(right, true);
+                break;
+                
+                case "FLIP":
+                    if(left == 1) {
+                        b1.flip(right);
+                    } else
+                        b2.flip(right);
+                break;
+                
+                case "OR":
+                    if(left == 1) {
+                        b1.or(b2);
+                    }
+                    else
+                        b2.or(b1);
+                break;
+                
+                case "XOR":
+                    if(left == 1) {
+                        b1.xor(b2);
+                    }
+                    else
+                        b2.xor(b1);
+                break;
+                
+                  
+            }
+            
+            System.out.println(b1.cardinality() + " " + b2.cardinality());
+        }
+    }
+}
